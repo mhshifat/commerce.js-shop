@@ -22,8 +22,8 @@ const AddressForm: React.FC<any> = ({ checkoutToken, next }) => {
   const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
 
   useEffect(() => {
-    fetchShippingCountries(checkoutToken.id);
-  }, []);
+    checkoutToken?.id && fetchShippingCountries(checkoutToken.id);
+  }, [checkoutToken.id]);
 
   useEffect(() => {
     shippingCountry && fetchSubdivisions(shippingCountry);
